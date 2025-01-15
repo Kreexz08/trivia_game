@@ -11,9 +11,12 @@ class Database
     public static function getConnection()
     {
         if (!self::$instance) {
-            $dsn = 'pgsql:host=localhost;port=5432;dbname=trivia;';
-            $user = 'postgres';
-            $password = '12345678';
+            require_once __DIR__ . '/../../loadEnv.php'; 
+            loadEnv(__DIR__ . '/../../.env'); 
+
+            $dsn = 'pgsql:host=' . $_ENV['DB_HOST'] . ';port=' . $_ENV['DB_PORT'] . ';dbname=' . $_ENV['DB_NAME'] . ';';
+            $user = $_ENV['DB_USER'];
+            $password = $_ENV['DB_PASSWORD'];
 
             self::$instance = new PDO($dsn, $user, $password, [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

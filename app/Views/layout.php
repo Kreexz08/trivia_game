@@ -20,7 +20,7 @@
             <?= $content ?>
         </main>
         <footer>
-            <p>&copy; <?= date('Y') ?> Trivia Games. ¡Diviértete aprendiendo!</p>
+            <p>&copy; <?= date('Y') ?> Trivia Games. ¡Diviertete aprendiendo!</p>
         </footer>
     </div>
 </body>

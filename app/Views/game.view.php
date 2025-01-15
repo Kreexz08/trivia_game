@@ -2,6 +2,15 @@
 <div class="game-container">
     <div class="game-header">
         <div class="score-board">
+            <?php if (isset($_SESSION['feedback'])): ?>
+                <div class="feedback <?= strpos($_SESSION['feedback'], 'Correcto!') !== false ? 'correct' : 'incorrect' ?>">
+                    <div class="feedback-icon">
+                        <?= strpos($_SESSION['feedback'], 'Correcto!') !== false ? '✓' : '✗' ?>
+                    </div>
+                    <p><?= htmlspecialchars($_SESSION['feedback']) ?></p>
+                </div>
+                <?php unset($_SESSION['feedback']); ?>
+            <?php endif; ?>
             <div class="score">
                 <span class="label">Puntuación</span>
                 <span class="value"><?= htmlspecialchars($_SESSION['score']) ?></span>
@@ -16,16 +25,6 @@
             </div>
         </div>
     </div>
-
-    <?php if (isset($_SESSION['feedback'])): ?>
-        <div class="feedback <?= strpos($_SESSION['feedback'], '¡Correcto!') !== false ? 'correct' : 'incorrect' ?>">
-            <div class="feedback-icon">
-                <?= strpos($_SESSION['feedback'], '¡Correcto!') !== false ? '✓' : '✗' ?>
-            </div>
-            <p><?= htmlspecialchars($_SESSION['feedback']) ?></p>
-        </div>
-        <?php unset($_SESSION['feedback']); ?>
-    <?php endif; ?>
 
     <?php if ($_SESSION['current_question'] < count($_SESSION['questions'])): ?>
         <?php $currentQuestion = $_SESSION['questions'][$_SESSION['current_question']]; ?>

@@ -4,7 +4,7 @@
         <div class="confetti-container" id="confetti"></div>
         <div class="profile-circle">
         </div>
-        <h2 class="animate-pop">¡Gracias por jugar, <?= htmlspecialchars($username) ?>!</h2>
+        <h2 class="animate-pop">Gracias por jugar, <?= htmlspecialchars($username) ?>!</h2>
         <div class="score-display">
             <div class="score-circle">
                 <span id="final-score" data-score="<?= htmlspecialchars($score) ?>">0</span>
@@ -12,11 +12,12 @@
             </div>
         </div>
         <p class="message animate-fade"><?= htmlspecialchars($message) ?></p>
+        <br>
         <a href="index.php" class="btn btn-primary pulse">Jugar de nuevo</a>
     </div>
 
     <div class="leaderboard-card">
-        <h2>🏆 Ranking de Mejores Puntuaciones</h2>
+        <h2>🏆 Ranking de mejores puntuaciones</h2>
         <div class="leaderboard">
             <?php foreach ($topScores as $index => $topScore): ?>
                 <div class="leaderboard-item <?= $index < 3 ? 'top-' . ($index + 1) : '' ?>">

@@ -29,7 +29,7 @@ body {
     flex-direction: column;
 }
 
-/* Header Styles */
+
 .navbar {
     background: var(--primary-color);
     color: white;
@@ -42,7 +42,6 @@ body {
     font-weight: 700;
 }
 
-/* Main Content */
 main {
     flex: 1;
     padding: 2rem;
@@ -51,7 +50,7 @@ main {
     width: 100%;
 }
 
-/* Card Styles */
+
 .card {
     background: var(--card-bg);
     border-radius: 12px;
@@ -60,7 +59,7 @@ main {
     margin-bottom: 2rem;
 }
 
-/* Game Specific Styles */
+
 .game-container {
     max-width: 800px;
     margin: 0 auto;
@@ -92,7 +91,7 @@ main {
     transform-origin: 50% 50%;
 }
 
-/* Question Styles */
+
 .question-card {
     background: var(--card-bg);
     border-radius: 12px;
@@ -133,7 +132,6 @@ main {
     margin-right: 8px;
 }
 
-/* Button Styles */
 .btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
@@ -156,7 +154,6 @@ main {
     transform: translateY(-2px);
 }
 
-/* End Game Styles */
 .end-game {
     text-align: center;
 }
@@ -240,7 +237,7 @@ main {
     text-align: right;
 }
 
-/* Animations */
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -256,7 +253,7 @@ main {
     to { opacity: 1; }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .options-grid {
         grid-template-columns: 1fr;
@@ -267,7 +264,6 @@ main {
     }
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 1rem;

@@ -1,8 +1,8 @@
 <?php ob_start(); ?>
 <div class="start-game">
     <div class="welcome-card">
-        <h2>¡Bienvenido a Trivia Games!</h2>
-        <p class="intro-text">Prepárate para poner a prueba tus conocimientos</p>
+        <h2>Bienvenido a Trivia Games!</h2>
+        <p class="intro-text">Preparate para poner a prueba tus conocimientos</p>
 
         <form method="POST" action="index.php" class="login-form">
             <div class="input-group">

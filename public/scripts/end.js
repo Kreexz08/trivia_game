@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 40);
 
-    // Confetti para puntajes altos
+    // confetti para puntajes altos
     function initConfetti() {
         tsParticles.load("confetti", {
             particles: {
