@@ -1,0 +1,18 @@
+{
+    "name": "numaa/game_php",
+    "description": "Un juego de trivia interactivo desarrollado en PHP puro.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nunma",
+            "email": "nariasd@tecnocomfenalco.edu.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Numaa\\GamePhp\\": "app/"
+        }
+    },
+    "require": {}
+}
