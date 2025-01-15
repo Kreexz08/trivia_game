@@ -2,6 +2,7 @@
 <div class="end-game">
     <h2>¡Gracias por jugar, <?= htmlspecialchars($username) ?>!</h2>
     <p>Puntuación total: <span id="final-score"><?= htmlspecialchars($score) ?></span></p>
+    <p><?= htmlspecialchars($message) ?></p>
     <a href="index.php" class="btn">Jugar de nuevo</a>
 
     <h2>Ranking de Mejores Puntuaciones</h2>
