@@ -1,41 +1,35 @@
-<p>Puntuación: <?= htmlspecialchars($_SESSION['score']) ?></p>
+<?php ob_start(); ?>
+<div class="score-board">
+    <p>Puntuación: <?= htmlspecialchars($_SESSION['score']) ?></p>
+</div>
 <?php if (isset($_SESSION['feedback'])): ?>
-    <p><?= htmlspecialchars($_SESSION['feedback']) ?></p>
+    <div class="feedback">
+        <p><?= htmlspecialchars($_SESSION['feedback']) ?></p>
+    </div>
     <?php unset($_SESSION['feedback']); ?>
 <?php endif; ?>
 
 <?php if ($_SESSION['current_question'] < count($_SESSION['questions'])): ?>
     <?php $currentQuestion = $_SESSION['questions'][$_SESSION['current_question']]; ?>
     <form id="questionForm" method="POST" action="game.php">
-        <p><?= htmlspecialchars($currentQuestion['texto']) ?></p>
-        <?php foreach (explode('|', $currentQuestion['opciones']) as $opcion): ?>
-            <label>
-                <input type="radio" name="answer" value="<?= htmlspecialchars($opcion) ?>" required>
-                <?= htmlspecialchars($opcion) ?>
-            </label><br>
-        <?php endforeach; ?>
+        <div class="question">
+            <p><?= htmlspecialchars($currentQuestion['texto']) ?></p>
+            <?php foreach (explode('|', $currentQuestion['opciones']) as $opcion): ?>
+                <label class="option">
+                    <input type="radio" name="answer" value="<?= htmlspecialchars($opcion) ?>" required>
+                    <?= htmlspecialchars($opcion) ?>
+                </label><br>
+            <?php endforeach; ?>
+        </div>
         <input type="hidden" name="question_id" value="<?= htmlspecialchars($currentQuestion['id']) ?>">
         <button type="submit">Responder</button>
     </form>
 
-    <p>Tiempo restante: <span id="timer">30</span> segundos</p>
-
-    <script>
-        let timeLeft = 30;
-        const timerElement = document.getElementById('timer');
-        const questionForm = document.getElementById('questionForm');
-
-        const countdown = setInterval(() => {
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                questionForm.submit();
-            } else {
-                timerElement.textContent = timeLeft;
-                timeLeft--;
-            }
-        }, 1000);
-    </script>
+    <div class="timer">
+        <p>Tiempo restante: <span id="timer">30</span> segundos</p>
+    </div>
 <?php else: ?>
     <p>No hay más preguntas disponibles.</p>
 <?php endif; ?>
+<script src="scripts/game.js"></script>
 <?php $content = ob_get_clean(); require 'layout.php'; ?>
