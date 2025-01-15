@@ -79,7 +79,7 @@ class GameController
             $message = "¡Excelente trabajo, $username! Eres un maestro de la trivia.";
         } elseif ($score >= 40) {
             $message = "¡Buen trabajo, $username! Tienes un buen conocimiento.";
-        } else {
+        } elseif ($score <= 40) {
             $message = "¡No te desanimes, $username! Sigue practicando y mejorarás.";
         }
 

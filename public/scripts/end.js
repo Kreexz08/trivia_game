@@ -1,26 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Animación del puntaje final
     const finalScoreElement = document.getElementById('final-score');
-    let finalScore = parseInt(finalScoreElement.textContent);
-    finalScoreElement.textContent = '0';
+    const finalScore = parseInt(finalScoreElement.getAttribute('data-score'));
     let currentScore = 0;
 
-    const scoreInterval = setInterval(() => {
+    const scoreAnimation = setInterval(() => {
         if (currentScore < finalScore) {
-            currentScore++;
+            currentScore += Math.ceil(finalScore / 50);
+            if (currentScore > finalScore) currentScore = finalScore;
             finalScoreElement.textContent = currentScore;
         } else {
-            clearInterval(scoreInterval);
+            clearInterval(scoreAnimation);
+            if (finalScore >= 80) {
+                initConfetti();
+            }
         }
-    }, 50);
+    }, 40);
 
-    // Animación de lista de mejores puntuaciones
-    const topScoresList = document.getElementById('top-scores-list');
-    const listItems = topScoresList.querySelectorAll('li');
-    listItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        setTimeout(() => {
-            item.style.transition = 'opacity 0.5s';
-            item.style.opacity = '1';
-        }, index * 200);
-    });
+    // Confetti para puntajes altos
+    function initConfetti() {
+        tsParticles.load("confetti", {
+            particles: {
+                number: {
+                    value: 100
+                },
+                color: {
+                    value: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                size: {
+                    value: 6,
+                    random: true
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "bottom",
+                    straight: false
+                }
+            }
+        });
+    }
 });
