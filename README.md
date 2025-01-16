@@ -59,3 +59,20 @@ Este es un juego de trivia desarrollado en PHP puro. Utiliza PostgreSQL como bas
 
 
 Con estos pasos, deberías poder configurar y ejecutar tu juego de trivia en PHP. 
+
+
+# Capturas de pantalla del proyecto
+
+## Ingreso de usuario:
+![alt text](image.png)
+
+## Preguntas con cronometro y retroalimentacion
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+## Ranking al finalizar las preguntas con las mejores puntuaciones y su respectivo mensaje personalizado dependiendo el puntaje
+
+![alt text](image-4.png)
+![alt text](image-5.png)
+
